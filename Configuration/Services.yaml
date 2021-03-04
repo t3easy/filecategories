@@ -1,0 +1,8 @@
+services:
+  T3easy\Filecategories\Aspect\FileCategoryAspect:
+    tags:
+    - name: event.listener
+      identifier: 't3easy-filecategories'
+      method: 'addCategoriesToMetadata'
+      event: TYPO3\CMS\Core\Resource\Event\EnrichFileMetaDataEvent
+      after: 'typo3-frontend/overlay'
