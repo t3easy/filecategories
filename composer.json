@@ -9,6 +9,9 @@
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "filecategories"
+		},
+		"branch-alias": {
+			"dev-main": "3.x-dev"
 		}
 	},
 	"autoload": {
