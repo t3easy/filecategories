@@ -1,22 +1,42 @@
 {
 	"name": "t3easy/filecategories",
-	"type": "typo3-cms-extension",
 	"description": "Small TYPO3 extension to add the categories to the file metadata",
 	"license": "GPL-2.0-or-later",
+	"type": "typo3-cms-extension",
 	"require": {
 		"typo3/cms-core": "^10.4.0"
 	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "filecategories"
-		},
-		"branch-alias": {
-			"dev-main": "3.x-dev"
-		}
+	"require-dev": {
+		"typo3/testing-framework": "^6.16"
 	},
 	"autoload": {
 		"psr-4": {
-			"T3easy\\Filecategories\\": "Classes"
+			"T3easy\\Filecategories\\": "Classes/"
 		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"T3easy\\Filecategories\\Tests\\": "Tests/"
+		}
+	},
+	"config": {
+		"bin-dir": ".Build/bin",
+		"vendor-dir": ".Build/vendor"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-main": "3.x-dev"
+		},
+		"typo3/cms": {
+			"app-dir": ".Build",
+			"extension-key": "filecategories",
+			"ignore-as-root": false,
+			"web-dir": ".Build/public"
+		}
+	},
+	"scripts": {
+		"post-autoload-dump": [
+			"TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+		]
 	}
 }
