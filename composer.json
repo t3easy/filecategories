@@ -4,7 +4,7 @@
 	"license": "GPL-2.0-or-later",
 	"type": "typo3-cms-extension",
 	"require": {
-		"typo3/cms-core": "^10.4.0"
+		"typo3/cms-core": "^10.4 | ^11.5"
 	},
 	"require-dev": {
 		"typo3/testing-framework": "^6.16"
@@ -20,6 +20,10 @@
 		}
 	},
 	"config": {
+		"allow-plugins": {
+			"typo3/class-alias-loader": true,
+			"typo3/cms-composer-installers": true
+		},
 		"bin-dir": ".Build/bin",
 		"vendor-dir": ".Build/vendor"
 	},
@@ -30,19 +34,18 @@
 		"typo3/cms": {
 			"app-dir": ".Build",
 			"extension-key": "filecategories",
-			"ignore-as-root": false,
 			"web-dir": ".Build/public"
 		}
 	},
 	"scripts": {
-		"tests": [
-			"@functional-tests"
-		],
-		"functional-tests": [
-			"typo3DatabaseDriver=pdo_sqlite phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml Tests/Functional"
-		],
 		"post-autoload-dump": [
 			"TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+		],
+		"tests": [
+			"@tests:functional"
+		],
+		"tests:functional": [
+			"typo3DatabaseDriver=pdo_sqlite phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml Tests/Functional"
 		]
 	}
 }
