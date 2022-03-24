@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Install PHP Coding Standards Fixer
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        coverage: none
+    - name: Install dependencies
       run: composer install --no-progress
-    - name: Run PHP Coding Standards Fixer
+    - name: Run PHP tests
       run: composer run-script tests
