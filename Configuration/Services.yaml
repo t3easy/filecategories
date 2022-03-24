@@ -1,4 +1,12 @@
 services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  T3easy\Filecategories\:
+    resource: '../Classes/*'
+
   T3easy\Filecategories\Aspect\FileCategoryAspect:
     tags:
     - name: event.listener

@@ -1,0 +1,6 @@
+/.Build/
+/Tools/php-cs-fixer/*
+!/Tools/php-cs-fixer/composer.json
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+/composer.lock

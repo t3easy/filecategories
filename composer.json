@@ -35,6 +35,12 @@
 		}
 	},
 	"scripts": {
+		"tests": [
+			"@functional-tests"
+		],
+		"functional-tests": [
+			"typo3DatabaseDriver=pdo_sqlite phpunit -c .Build/vendor/typo3/testing-framework/Resources/Core/Build/FunctionalTests.xml Tests/Functional"
+		],
 		"post-autoload-dump": [
 			"TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
 		]

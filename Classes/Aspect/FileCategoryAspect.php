@@ -1,11 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 namespace T3easy\Filecategories\Aspect;
 
-use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Resource\Event\EnrichFileMetaDataEvent;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class FileCategoryAspect
 {
@@ -38,7 +39,8 @@ final class FileCategoryAspect
         return $queryBuilder
             ->select('*')
             ->from('sys_category')
-            ->join('sys_category',
+            ->join(
+                'sys_category',
                 'sys_category_record_mm',
                 'sys_category_record_mm',
                 $queryBuilder->expr()->eq(
@@ -78,7 +80,7 @@ final class FileCategoryAspect
                 'sys_category',
                 $category
             );
-            if ($overlaidCategory !== null){
+            if ($overlaidCategory !== null) {
                 $categories[$key] = $overlaidCategory;
             }
         }

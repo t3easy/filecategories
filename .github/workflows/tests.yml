@@ -1,0 +1,15 @@
+name: Default workflow
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install PHP Coding Standards Fixer
+      run: composer install --no-progress
+    - name: Run PHP Coding Standards Fixer
+      run: composer run-script tests
